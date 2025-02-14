@@ -1,0 +1,50 @@
+<div class="container mt-5">
+  <h2>Cadastro de Contato</h2>
+  <form [formGroup]="registrationContact" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="nome">Nome</label>
+      <input
+        type="text"
+        class="form-control"
+        id="nome"
+        formControlName="name"
+      />
+    </div>
+    <div class="form-group">
+      <label for="telefone">Telefone</label>
+      <input
+        type="text"
+        class="form-control"
+        id="telefone"
+        formControlName="phone"
+        name="telefone"
+        required
+      />
+    </div>
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input
+        type="email"
+        class="form-control"
+        id="email"
+        formControlName="email"
+      />
+    </div>
+
+    <span (click)="toggleFavorite()" class="star">
+      {{ registrationContact.value.favorite ? "⭐" : "☆" }}
+    </span>
+
+    <button
+      type="button"
+      (click)="toggleActive()"
+      [ngClass]="{
+        'active-btn': registrationContact.value.active,
+        'inactive-btn': !registrationContact.value.active
+      }"
+    >
+      {{ registrationContact.value.active ? "Ativo" : "Inativo" }}
+    </button>
+    <button type="submit" class="btn btn-primary">Salvar</button>
+  </form>
+</div>
