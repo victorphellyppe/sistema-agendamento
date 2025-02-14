@@ -1,13 +1,22 @@
 /* You can add global styles to this file, and also import other style files */
 /* src/styles.css */
-body {
-  font-family: Arial, sans-serif;
+
+.navbar-toggler {
+  border: none; /* Remove a borda do botão */
+  outline: none;
 }
 
-.navbar {
-  margin-bottom: 20px;
+.navbar-nav {
+  width: 100%;
+  text-align: center;
 }
 
-.dropdown-menu {
-  cursor: pointer;
+.nav-item {
+  padding: 10px;
+}
+
+@media (max-width: 768px) {
+  .navbar-collapse {
+    text-align: center;
+  }
 }
