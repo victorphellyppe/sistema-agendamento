@@ -29,7 +29,8 @@
       *ngFor="
         let contact of contacts
           | favoriteFilter : showFavorites
-          | activeFilter : showActive
+          | activeFilter : showActive;
+        let i = index
       "
     >
       <td>{{ contact.name }}</td>
@@ -38,13 +39,45 @@
       <td>{{ contact.favorite ? "⭐" : "☆" }}</td>
       <td>{{ contact.active ? "Ativo" : "Inativo" }}</td>
       <td>
-        <button class="btn btn-warning">
+        <button class="btn btn-warning" (click)="editContact(i)">
           <i class="bi bi-pencil-square"></i> Editar
         </button>
-        <button class="btn btn-danger">
+        <button class="btn btn-danger" (click)="deleteContact(i)">
           <i class="bi bi-trash"></i> Deletar
         </button>
       </td>
     </tr>
   </tbody>
 </table>
+<div *ngIf="editMode">
+  <h3>Editar Contato</h3>
+  <form [formGroup]="formEdit" (ngSubmit)="editContactSubmit()">
+    <div class="form-group">
+      <label for="name">Nome</label>
+      <input type="text" class="form-control" formControlName="name" />
+    </div>
+    <div class="form-group">
+      <label for="phone">Telefone</label>
+      <input type="text" class="form-control" formControlName="phone" />
+    </div>
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="email" class="form-control" formControlName="email" />
+    </div>
+    <div class="form-group">
+      <label>
+        Favorito
+        <input type="checkbox" formControlName="favorite" />
+      </label>
+    </div>
+    <div class="form-group">
+      <label>
+        Ativo
+        <input type="checkbox" formControlName="active" />
+      </label>
+    </div>
+    <button type="submit" class="btn btn-warning">
+      <i class="bi bi-pencil-square"></i> Editar
+    </button>
+  </form>
+</div>
