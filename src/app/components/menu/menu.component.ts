@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-menu',
@@ -10,7 +10,9 @@ import { RouterModule } from '@angular/router';
 })
 export class MenuComponent implements OnInit {
   @Input() imageUrl!: string;
-  constructor() {}
+  constructor(private router: Router) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    console.log('Current URL:', this.router.url);
+  }
 }

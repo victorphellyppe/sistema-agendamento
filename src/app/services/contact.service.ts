@@ -7,22 +7,22 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class ContactService {
   private contacts: Contact[] = [
-    {
-      id: 1,
-      name: 'Victor Oliveira',
-      phone: '82988260479',
-      email: 'vitinifal@gmail.com',
-      favorite: false,
-      active: true,
-    },
-    {
-      id: 2,
-      name: 'Anthony Miguel de Oliveira',
-      phone: '8294260563',
-      email: 'anthonyoliveira@gmail.com',
-      favorite: true,
-      active: true,
-    },
+    // {
+    //   id: 1,
+    //   name: 'Victor Oliveira',
+    //   phone: '82988260479',
+    //   email: 'vitinifal@gmail.com',
+    //   favorite: false,
+    //   active: true,
+    // },
+    // {
+    //   id: 2,
+    //   name: 'Anthony Miguel de Oliveira',
+    //   phone: '8294260563',
+    //   email: 'anthonyoliveira@gmail.com',
+    //   favorite: true,
+    //   active: true,
+    // },
   ];
   private contatosSource = new BehaviorSubject<any[]>([]);
   contatos$ = this.contatosSource.asObservable();
@@ -37,10 +37,23 @@ export class ContactService {
   }
 
   addContact(contact: Contact): void {
-    const currentContatos = this.contatosSource.value;
+    const currentContatos = this.getContactsFromLocalStorage();
     console.log(contact, currentContatos);
 
-    this.contatosSource.next([...currentContatos, contact]);
+    const updatedContatos = [...currentContatos, contact];
+
+    this.saveContactsToLocalStorage(updatedContatos);
+
+    this.contatosSource.next(updatedContatos);
+  }
+
+  getContactsFromLocalStorage(): Contact[] {
+    const storedContacts = localStorage.getItem('contacts');
+    return storedContacts ? JSON.parse(storedContacts) : [];
+  }
+
+  saveContactsToLocalStorage(contacts: Contact[]): void {
+    localStorage.setItem('contacts', JSON.stringify(contacts));
   }
 
   updateContact(contact: Contact): void {

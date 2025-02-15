@@ -1,59 +1,18 @@
-/* Estilos gerais da navbar */
-.navbar {
-  background-color: #f8f9fa !important; /* Cor de fundo da navbar */
+/* Estilo para o item ativo */
+.navbar-nav .nav-link.active {
+  font-weight: bold; /* Aumenta a espessura da fonte do item ativo */
+  color: #0056b3; /* Altere para a cor que preferir */
+  background-color: #f0f0f0; /* Cor de fundo do item ativo */
 }
 
-.navbar-nav {
-  margin-left: 10px; /* Espaçamento da lista de itens */
+/* Efeito de hover */
+.navbar-nav .nav-link:hover {
+  color: #fff; /* Cor do texto ao passar o mouse */
+  background-color: #007bff; /* Cor de fundo ao passar o mouse */
 }
 
-.nav-item {
-  margin-right: 15px; /* Espaçamento entre os itens da lista */
-}
-
-.navbar-toggler {
-  border: none; /* Remove a borda do botão de alternância */
-}
-
-.navbar-toggler i {
-  font-size: 1.5rem; /* Tamanho do ícone do botão */
-  color: #333; /* Cor do ícone */
-}
-
-.navbar-toggler img {
-  max-width: 30px; /* Ajuste de tamanho da imagem */
-  height: auto;
-  margin-left: 10px; /* Espaçamento entre o ícone e a imagem */
-}
-
-.nav-link {
-  color: #007bff !important; /* Cor do texto da navegação */
-  font-weight: 500; /* Peso da fonte */
-  transition: color 0.3s ease; /* Transição suave ao passar o mouse */
-}
-
-.nav-link:hover {
-  color: #0056b3 !important; /* Cor do texto ao passar o mouse */
-}
-
-/* Estilos do dropdown */
-.nav-item.dropdown:hover .dropdown-menu {
-  display: block; /* Exibe o dropdown ao passar o mouse sobre o item */
-}
-
-.dropdown-menu {
-  background-color: #fff; /* Cor de fundo do menu suspenso */
-  border-radius: 5px; /* Bordas arredondadas do dropdown */
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Sombra suave */
-  transition: all 0.3s ease; /* Transição suave */
-}
-
-.dropdown-item {
-  color: #333 !important; /* Cor do texto das opções */
-  padding: 10px 20px; /* Espaçamento interno */
-  font-weight: 400; /* Peso da fonte */
-}
-
-.dropdown-item:hover {
-  background-color: #f8f9fa; /* Cor de fundo ao passar o mouse */
+/* Efeito de foco */
+.navbar-nav .nav-link:focus {
+  outline: none; /* Remove o contorno padrão */
+  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.5); /* Adiciona sombra ao focar */
 }

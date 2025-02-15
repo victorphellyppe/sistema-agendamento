@@ -1,13 +1,18 @@
+import { NgxMaskDirective } from 'ngx-mask';
 import { Component, OnInit } from '@angular/core';
 import { Contact } from '../../interfaces/contact';
 import { ContactService } from '../../services/contact.service';
 import { Router } from '@angular/router';
-import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
-import { CommonModule } from '@angular/common';
+import {
+  FormBuilder,
+  FormGroup,
+  ReactiveFormsModule,
+  Validators,
+} from '@angular/forms';
 
 @Component({
   selector: 'app-registration-contact',
-  imports: [ReactiveFormsModule, CommonModule],
+  imports: [ReactiveFormsModule, NgxMaskDirective],
   templateUrl: './registration-contact.component.html',
   styleUrl: './registration-contact.component.scss',
   standalone: true,
@@ -36,26 +41,30 @@ export class RegistrationContactComponent implements OnInit {
 
   ngOnInit(): void {
     this.registrationContact = this.fb.group({
-      name: [''],
-      phone: [''],
-      email: [''],
+      name: ['', Validators.required],
+      phone: ['', [Validators.required, Validators.maxLength(11)]],
+      email: ['', [Validators.required, Validators.email]],
       favorite: [false],
       active: [true],
     });
   }
 
   onSubmit(): void {
+    console.log(this.registrationContact.value);
+
     const newContact: Contact = {
       id: this.idContact++,
       name: this.registrationContact.value.name,
-      phone: this.registrationContact.value.contact,
+      phone: this.registrationContact.value.phone,
       email: this.registrationContact.value.email,
       favorite: this.registrationContact.value.favorite,
       active: this.registrationContact.value.active,
     };
 
+    console.log(newContact, 'aqui');
+
     this.contactSvc.addContact(newContact);
-    console.log(this.contactSvc.getContacts());
+    this.registrationContact.reset();
   }
 
   toggleFavorite() {
