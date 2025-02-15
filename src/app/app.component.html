@@ -1,38 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <div class="container-fluid">
-    <!-- Botão do menu responsivo -->
-    <button
-      class="navbar-toggler"
-      type="button"
-      data-bs-toggle="collapse"
-      data-bs-target="#navbarNavDropdown"
-      aria-controls="navbarNavDropdown"
-      aria-expanded="false"
-      aria-label="Toggle navigation"
-    >
-      <i class="bi bi-list"></i>
-      <!-- Ícone de menu do Bootstrap -->
-    </button>
-
-    <!-- Itens do menu -->
-    <div class="collapse navbar-collapse" id="navbarNavDropdown">
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/registration-contact"
-            >Cadastrar Contato</a
-          >
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/consultation-contact"
-            >Consultar Contatos</a
-          >
-        </li>
-      </ul>
-    </div>
-  </div>
-</nav>
-
-<!-- Área dinâmica para carregamento de componentes -->
+<app-menu [imageUrl]="'../assets/hamburger.png'"></app-menu>
 <div class="container mt-4">
   <router-outlet></router-outlet>
 </div>
