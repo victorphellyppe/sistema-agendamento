@@ -81,6 +81,16 @@ export class ConsultationContactComponent implements OnInit {
   }
 
   deleteContact(index: number): void {
-    this.contacts.splice(index, 1);
+    const confirmDelete = window.confirm(
+      'Você tem certeza de que deseja excluir este contato?'
+    );
+
+    if (confirmDelete) {
+      this.contacts.splice(index, 1);
+      this.contacts = [...this.contacts];
+      console.log('Contato excluído');
+    } else {
+      console.log('Exclusão cancelada');
+    }
   }
 }
