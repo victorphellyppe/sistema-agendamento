@@ -22,7 +22,11 @@ export class RegistrationContactComponent implements OnInit {
     active: true,
   };
 
+  contacts: Contact[] = [];
+
   registrationContact!: FormGroup;
+
+  idContact: number = 1;
 
   constructor(
     private contactSvc: ContactService,
@@ -41,11 +45,21 @@ export class RegistrationContactComponent implements OnInit {
   }
 
   onSubmit(): void {
-    this.contact.id = this.contactSvc.getContacts().length + 1;
-    this.contactSvc.addContact(this.contact);
-    this.router.navigate(['/contacts']);
+    const newContact: Contact = {
+      id: this.idContact++,
+      name: this.registrationContact.value.name,
+      phone: this.registrationContact.value.contact,
+      email: this.registrationContact.value.email,
+      favorite: this.registrationContact.value.favorite,
+      active: this.registrationContact.value.active,
+    };
+
+    this.contactSvc.addContact(newContact);
+    console.log(this.contactSvc.getContacts());
   }
 
-  toggleFavorite() {}
-  toggleActive() {}
+  toggleFavorite() {
+    this.registrationContact.value.favorite =
+      !this.registrationContact.value.favorite;
+  }
 }

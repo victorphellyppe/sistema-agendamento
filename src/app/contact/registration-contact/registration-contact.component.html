@@ -8,8 +8,10 @@
         class="form-control"
         id="nome"
         formControlName="name"
+        placeholder="Digite o nome completo"
       />
     </div>
+
     <div class="form-group">
       <label for="telefone">Telefone</label>
       <input
@@ -17,10 +19,11 @@
         class="form-control"
         id="telefone"
         formControlName="phone"
-        name="telefone"
+        placeholder="Digite o telefone"
         required
       />
     </div>
+
     <div class="form-group">
       <label for="email">Email</label>
       <input
@@ -28,6 +31,7 @@
         class="form-control"
         id="email"
         formControlName="email"
+        placeholder="Digite o email"
       />
     </div>
 
@@ -35,7 +39,7 @@
       {{ registrationContact.value.favorite ? "⭐" : "☆" }}
     </span>
 
-    <button
+    <!-- <button
       type="button"
       (click)="toggleActive()"
       [ngClass]="{
@@ -44,7 +48,8 @@
       }"
     >
       {{ registrationContact.value.active ? "Ativo" : "Inativo" }}
-    </button>
+    </button> -->
+
     <button type="submit" class="btn btn-primary">Salvar</button>
   </form>
 </div>

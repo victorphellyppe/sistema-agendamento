@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Contact } from '../interfaces/contact';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -23,6 +24,8 @@ export class ContactService {
       active: true,
     },
   ];
+  private contatosSource = new BehaviorSubject<any[]>([]);
+  contatos$ = this.contatosSource.asObservable();
   constructor() {}
 
   getContacts(): Contact[] {
@@ -34,7 +37,10 @@ export class ContactService {
   }
 
   addContact(contact: Contact): void {
-    this.contacts.push(contact);
+    const currentContatos = this.contatosSource.value;
+    console.log(contact, currentContatos);
+
+    this.contatosSource.next([...currentContatos, contact]);
   }
 
   updateContact(contact: Contact): void {

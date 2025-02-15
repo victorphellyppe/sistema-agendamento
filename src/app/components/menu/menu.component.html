@@ -4,40 +4,31 @@
       class="navbar-toggler"
       type="button"
       data-bs-toggle="collapse"
-      data-bs-target="#navbarNavDropdown"
-      aria-controls="navbarNavDropdown"
+      data-bs-target="#navbarNav"
+      aria-controls="navbarNav"
       aria-expanded="false"
       aria-label="Toggle navigation"
     >
       <i class="bi bi-list"></i>
-      <img [src]="imageUrl" alt="Imagem Menu" />
+      <!-- <img [src]="imageUrl" alt="Imagem Menu" /> -->
     </button>
 
-    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+    <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
-        <!-- Dropdown de Contatos -->
-        <li class="nav-item dropdown">
-          <a
-            class="nav-link dropdown-toggle"
-            href="#"
-            id="navbarDropdown"
-            role="button"
-            data-bs-toggle="dropdown"
-            aria-expanded="false"
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="'/registration-contact'"
+            >Cadastrar Contato</a
           >
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li>
-                <a class="dropdown-item" routerLink="/registration-contact"
-                  >Cadastrar Contato</a
-                >
-              </li>
-              <li>
-                <a class="dropdown-item" routerLink="/consultation-contact"
-                  >Consultar Contatos</a
-                >
-              </li>
-            </ul>
-          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="'/consultation-contact'"
+            >Consultar Contatos</a
+          >
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="'/consultation-contact'"
+            >Contatos Favoritos</a
+          >
         </li>
       </ul>
     </div>

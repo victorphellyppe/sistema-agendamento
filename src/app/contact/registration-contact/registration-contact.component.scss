@@ -1,26 +1,67 @@
-.item-container {
-  display: flex;
-  align-items: center;
-  gap: 10px;
+/* Adicionando margem superior */
+.container.mt-5 {
+  margin-top: 50px;
 }
 
+/* Estilizando o título */
+h2 {
+  font-family: "Arial", sans-serif;
+  font-size: 2rem;
+  color: #343a40;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+/* Estilizando o botão de salvar */
+button[type="submit"] {
+  width: 100%;
+  padding: 10px;
+  margin-top: 20px;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+/* Estilizando o botão ativo/inativo */
+button.active-btn {
+  background-color: #28a745;
+}
+
+button.inactive-btn {
+  background-color: #dc3545;
+}
+
+button[type="button"]:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+/* Estilizando o ícone da estrela */
 .star {
-  font-size: 24px;
+  font-size: 1.5rem;
   cursor: pointer;
+  margin: 10px 0;
 }
 
-.active-btn {
-  background-color: green;
-  color: white;
-  border: none;
-  padding: 8px 12px;
-  cursor: pointer;
+/* Melhorando a aparência dos inputs */
+.form-group label {
+  font-size: 1.1rem;
+  color: #495057;
 }
 
-.inactive-btn {
-  background-color: red;
-  color: white;
-  border: none;
-  padding: 8px 12px;
-  cursor: pointer;
+.form-control {
+  border-radius: 5px;
+  border: 1px solid #ced4da;
+  padding: 10px;
+  font-size: 1rem;
+  margin-bottom: 15px;
+}
+
+/* Foco nos campos de input */
+.form-control:focus {
+  border-color: #80bdff;
+  box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.25);
 }
