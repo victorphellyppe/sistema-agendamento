@@ -1,4 +1,3 @@
-import { EditContactComponent } from './contact/edit-contact/edit-contact.component';
 import { Routes } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
 import { RegistrationContactComponent } from './contact/registration-contact/registration-contact.component';
@@ -28,11 +27,6 @@ export const routes: Routes = [
     canActivate: [authGuard],
   },
 
-  {
-    path: 'edit-contact',
-    component: EditContactComponent,
-    canActivate: [authGuard],
-  },
   {
     path: 'registration-contact',
     component: RegistrationContactComponent,
