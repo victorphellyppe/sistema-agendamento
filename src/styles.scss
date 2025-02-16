@@ -20,11 +20,17 @@
     text-align: center;
   }
 }
-body {
+/* Estilo para a página de login */
+body.login-page {
   margin: 0;
   padding: 0;
   height: 100vh;
   background-image: url("./assets/telefone.jpg");
   background-size: cover;
   background-position: center;
+}
+
+/* Estilo para as outras páginas */
+body:not(.login-page) {
+  background-image: none;
 }

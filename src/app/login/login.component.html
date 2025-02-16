@@ -1,60 +1,62 @@
-<h3>Sistema de Agendamento Telefonico</h3>
-<div class="card">
-  <!-- Formulário de Login -->
-  <div *ngIf="!isRegistering">
-    <h2>Login</h2>
-    <form (ngSubmit)="onLogin()">
-      <input
-        [(ngModel)]="username"
-        name="username"
-        placeholder="Username"
-        required
-      />
-      <input
-        [(ngModel)]="password"
-        name="password"
-        type="password"
-        placeholder="Password"
-        required
-      />
-      <button type="submit">Login</button>
-    </form>
+<div class="background-container">
+  <h3>Sistema de Agendamento Telefonico</h3>
+  <div class="card">
+    <!-- Formulário de Login -->
+    <div *ngIf="!isRegistering">
+      <h2>Login</h2>
+      <form (ngSubmit)="onLogin()">
+        <input
+          [(ngModel)]="username"
+          name="username"
+          placeholder="Username"
+          required
+        />
+        <input
+          [(ngModel)]="password"
+          name="password"
+          type="password"
+          placeholder="Password"
+          required
+        />
+        <button type="submit">Login</button>
+      </form>
 
-    <p *ngIf="loginFailed" style="color: red">Credenciais inválidas!</p>
+      <p *ngIf="loginFailed" style="color: red">Credenciais inválidas!</p>
 
-    <p *ngIf="!isRegistering">
-      Não tem uma conta?
-      <a href="javascript:void(0)" (click)="toggleRegister()">Cadastre-se</a>
-    </p>
-  </div>
+      <p *ngIf="!isRegistering">
+        Não tem uma conta?
+        <a href="javascript:void(0)" (click)="toggleRegister()">Cadastre-se</a>
+      </p>
+    </div>
 
-  <!-- Formulário de Registro -->
-  <div *ngIf="isRegistering">
-    <h3>Cadastro</h3>
-    <form (ngSubmit)="onRegister()">
-      <input
-        [(ngModel)]="newUsername"
-        name="newUsername"
-        placeholder="Novo Username"
-        required
-      />
-      <input
-        [(ngModel)]="newPassword"
-        name="newPassword"
-        type="password"
-        placeholder="Nova Senha"
-        required
-      />
-      <button type="submit">Cadastrar</button>
-    </form>
+    <!-- Formulário de Registro -->
+    <div *ngIf="isRegistering">
+      <h3>Cadastro</h3>
+      <form (ngSubmit)="onRegister()">
+        <input
+          [(ngModel)]="newUsername"
+          name="newUsername"
+          placeholder="Novo Username"
+          required
+        />
+        <input
+          [(ngModel)]="newPassword"
+          name="newPassword"
+          type="password"
+          placeholder="Nova Senha"
+          required
+        />
+        <button type="submit">Cadastrar</button>
+      </form>
 
-    <p *ngIf="registrationFailed" style="color: red">
-      Nome de usuário já existe!
-    </p>
+      <p *ngIf="registrationFailed" style="color: red">
+        Nome de usuário já existe!
+      </p>
 
-    <p>
-      Já tem uma conta?
-      <a href="javascript:void(0)" (click)="toggleRegister()">Login</a>
-    </p>
+      <p>
+        Já tem uma conta?
+        <a href="javascript:void(0)" (click)="toggleRegister()">Login</a>
+      </p>
+    </div>
   </div>
 </div>

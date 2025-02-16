@@ -1,19 +1,52 @@
-.card {
-  max-width: 400px;
-  margin: 100px auto;
+.background-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("../../assets/telefone.jpg");
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   padding: 20px;
-  border: 1px solid #ccc;
+  z-index: -1;
+}
+
+h3 {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  color: white;
+  font-size: 2rem;
+  z-index: 1;
+}
+
+.card {
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.8
+  );
+  padding: 20px;
   border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  background-color: #fff;
+  width: 100%;
+  max-width: 400px;
+  box-sizing: border-box;
+  z-index: 1;
 }
 
 input {
+  display: block;
   width: 100%;
   padding: 10px;
-  margin: 10px 0;
-  border: 1px solid #ccc;
+  margin-bottom: 10px;
   border-radius: 4px;
+  border: 1px solid #ccc;
 }
 
 button {
@@ -30,11 +63,21 @@ button:hover {
   background-color: #0056b3;
 }
 
-a {
-  color: #007bff;
-  text-decoration: none;
+@media (max-width: 768px) {
+  .background-container {
+    background-attachment: scroll;
+    padding: 10px;
+  }
+
+  .card {
+    width: 90%;
+    padding: 15px;
+  }
 }
 
-a:hover {
-  text-decoration: underline;
+@media (max-width: 480px) {
+  .card {
+    width: 100%; 
+    padding: 10px;
+  }
 }
