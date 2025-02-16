@@ -100,8 +100,14 @@ export class ConsultationContactComponent implements OnInit {
 
     if (confirmDelete) {
       this.contacts.splice(index, 1);
-      this.contacts = [...this.contacts];
-      console.log('Contato excluído');
+
+      localStorage.setItem('contacts', JSON.stringify(this.contacts));
+
+      console.log('Contato excluído:', this.contacts);
+
+      this.loadContacts();
+
+      this.cdRef.detectChanges();
     } else {
       console.log('Exclusão cancelada');
     }
