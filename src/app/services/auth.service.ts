@@ -5,20 +5,24 @@ import { Injectable } from '@angular/core';
 })
 export class AuthService {
   private loggedIn = false;
-  private users = new Map<string, string>();
-
   constructor() {}
 
   login(username: string, password: string): boolean {
-    if (this.users.has(username) && this.users.get(username) === password) {
+    const storedUsername = localStorage.getItem('username');
+    const storedPassword = localStorage.getItem('password');
+
+    if (username === storedUsername && password === storedPassword) {
       this.loggedIn = true;
       return true;
     }
+
     return false;
   }
 
   logout(): void {
     this.loggedIn = false;
+    localStorage.removeItem('username');
+    localStorage.removeItem('password');
   }
 
   isAuthenticated(): boolean {
@@ -26,11 +30,14 @@ export class AuthService {
   }
 
   register(username: string, password: string): boolean {
-    if (this.users.has(username)) {
+    const existingUsername = localStorage.getItem('username');
+
+    if (existingUsername) {
       return false;
     }
 
-    this.users.set(username, password);
+    localStorage.setItem('username', username);
+    localStorage.setItem('password', password);
     return true;
   }
 }
