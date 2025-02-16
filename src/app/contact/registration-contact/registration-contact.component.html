@@ -34,9 +34,12 @@
       />
     </div>
 
-    <span (click)="toggleFavorite()" class="star">
-      {{ registrationContact.value.favorite ? "⭐" : "☆" }}
-    </span>
+    <div class="form-group">
+      <label for="favorite">Favorito</label>
+      <span (click)="toggleFavorite()" class="star" id="favorite">
+        {{ registrationContact.value.favorite ? "⭐" : "☆" }}
+      </span>
+    </div>
 
     <!-- <button
       type="button"
