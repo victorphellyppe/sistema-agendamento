@@ -38,5 +38,5 @@ export const routes: Routes = [
     component: RegistrationContactComponent,
     canActivate: [authGuard],
   },
-  { path: '**', redirectTo: '' },
+  { path: '**', redirectTo: 'home' },
 ];

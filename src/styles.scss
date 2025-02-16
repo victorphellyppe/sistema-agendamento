@@ -20,3 +20,11 @@
     text-align: center;
   }
 }
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  background-image: url("./assets/telefone.jpg");
+  background-size: cover;
+  background-position: center;
+}
