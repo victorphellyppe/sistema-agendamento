@@ -37,3 +37,12 @@ h2 {
 .dropdown:hover .dropdown-menu {
   display: block;
 }
+.main-container {
+  background-image: url("../../../assets/telefone.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  height: calc(100vh - 60px);
+  width: 100vw;
+}

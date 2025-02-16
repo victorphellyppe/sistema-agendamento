@@ -55,28 +55,41 @@ export class ConsultationContactComponent implements OnInit {
   }
 
   editContact(index: number): void {
+    console.log(index, 'index');
     const contact = this.contacts[index];
+    console.log(contact, 'const');
+
     this.editIndex = index;
     this.formEdit.setValue({
       name: contact.name,
       phone: contact.phone,
       email: contact.email,
-      favorite: contact.favorite,
-      active: contact.active,
+      favorite: contact.favorite ?? false,
+      active: contact.active ?? true,
     });
-    this.editMode = true; // Ativa o modo de edição
+    this.editMode = true;
   }
 
   editContactSubmit(): void {
     if (this.formEdit.valid) {
       const updatedContact = this.formEdit.value;
+
       this.contacts[this.editIndex] = {
         ...this.contacts[this.editIndex],
         ...updatedContact,
       };
+
+      localStorage.setItem('contacts', JSON.stringify(this.contacts));
+      console.log(
+        'Contatos atualizados:',
+        JSON.parse(localStorage.getItem('contacts')!)
+      );
+
       this.formEdit.reset();
-      this.editMode = false; // Desativa o modo de edição após salvar
-      this.cdRef.detectChanges();
+      this.editMode = false;
+
+      this.cdRef.markForCheck();
+      this.loadContacts();
     }
   }
 
@@ -92,5 +105,10 @@ export class ConsultationContactComponent implements OnInit {
     } else {
       console.log('Exclusão cancelada');
     }
+  }
+
+  loadContacts(): void {
+    const storedContacts = localStorage.getItem('contacts');
+    this.contacts = storedContacts ? JSON.parse(storedContacts) : [];
   }
 }
