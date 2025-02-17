@@ -1,19 +1,17 @@
-/* tslint:disable:no-unused-variable */
-import { waitForAsync, ComponentFixture, TestBed } from '@angular/core/testing';
-import { By } from '@angular/platform-browser';
-import { DebugElement } from '@angular/core';
-
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { MenuComponent } from './menu.component';
+import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 
 describe('MenuComponent', () => {
   let component: MenuComponent;
   let fixture: ComponentFixture<MenuComponent>;
 
-  beforeEach(waitForAsync(() => {
-    TestBed.configureTestingModule({
-      declarations: [MenuComponent],
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
+      imports: [CommonModule, RouterModule.forRoot([]), MenuComponent],
     }).compileComponents();
-  }));
+  });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(MenuComponent);

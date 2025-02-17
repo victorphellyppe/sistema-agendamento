@@ -1,23 +1,16 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { TestBed } from '@angular/core/testing';
 import { ConsultationContactComponent } from './consultation-contact.component';
 
 describe('ConsultationContactComponent', () => {
-  let component: ConsultationContactComponent;
-  let fixture: ComponentFixture<ConsultationContactComponent>;
-
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ConsultationContactComponent]
-    })
-    .compileComponents();
-
-    fixture = TestBed.createComponent(ConsultationContactComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
+      imports: [ConsultationContactComponent],
+    }).compileComponents();
   });
 
   it('should create', () => {
+    const fixture = TestBed.createComponent(ConsultationContactComponent);
+    const component = fixture.componentInstance;
     expect(component).toBeTruthy();
   });
 });

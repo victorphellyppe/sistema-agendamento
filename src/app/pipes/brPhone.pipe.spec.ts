@@ -1,11 +1,19 @@
-/* tslint:disable:no-unused-variable */
-
-import { TestBed, async } from '@angular/core/testing';
 import { BrPhonePipe } from './brPhone.pipe';
 
-describe('Pipe: BrPhonee', () => {
-  it('create an instance', () => {
-    let pipe = new BrPhonePipe();
-    expect(pipe).toBeTruthy();
+describe('BrPhonePipe', () => {
+  let pipe: BrPhonePipe;
+
+  beforeEach(() => {
+    pipe = new BrPhonePipe();
+  });
+
+  it('should return the original value if it is a valid phone number', () => {
+    const validPhone = '1234567890';
+    expect(pipe.transform(validPhone)).toEqual(validPhone);
+  });
+
+  it('should return null if the phone number is invalid', () => {
+    const invalidPhone = '';
+    expect(pipe.transform(invalidPhone)).toBeNull();
   });
 });

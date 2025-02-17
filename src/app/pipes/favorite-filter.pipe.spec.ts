@@ -1,4 +1,4 @@
-import { FavoriteFilterPipe } from '../favorite-filter.pipe';
+import { FavoriteFilterPipe } from './favorite-filter.pipe';
 
 describe('FavoriteFilterPipe', () => {
   it('create an instance', () => {

@@ -66,17 +66,28 @@ export class RegistrationContactComponent implements OnInit {
     this.registrationContact.reset();
   }
 
-  toggleFavorite() {
-    this.registrationContact.value.favorite =
-      !this.registrationContact.value.favorite;
+  toggleFavorite(): void {
+    this.registrationContact.patchValue({
+      favorite: !this.registrationContact.value.favorite,
+    });
   }
 
-  formatPhoneNumber(event: any) {
-    console.log(event);
+  formatPhoneNumber(event: any): void {
+    let input = event.target.value.replace(/\D/g, '');
+    if (input.length <= 2) {
+      input = `(${input}`;
+    } else if (input.length <= 6) {
+      input = `(${input.substring(0, 2)}) ${input.substring(2)}`;
+    } else {
+      input = `(${input.substring(0, 2)}) ${input.substring(
+        2,
+        7
+      )}${input.substring(7, 11)}`;
+    }
+    event.target.value = input; // Set the formatted phone number in the input field
+  }
 
-    const inputValue = event.target.value.replace(/\D/g, ''); // Remove tudo que não for número
-    this.registrationContact.controls['phone'].setValue(inputValue, {
-      emitEvent: false,
-    });
+  updateEmail(newEmail: string) {
+    this.registrationContact.get('email')?.setValue(newEmail);
   }
 }
