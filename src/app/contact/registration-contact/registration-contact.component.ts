@@ -1,4 +1,3 @@
-import { NgxMaskDirective } from 'ngx-mask';
 import { Component, OnInit } from '@angular/core';
 import { Contact } from '../../interfaces/contact';
 import { ContactService } from '../../services/contact.service';
@@ -12,7 +11,7 @@ import {
 
 @Component({
   selector: 'app-registration-contact',
-  imports: [ReactiveFormsModule, NgxMaskDirective],
+  imports: [ReactiveFormsModule],
   templateUrl: './registration-contact.component.html',
   styleUrl: './registration-contact.component.scss',
   standalone: true,
@@ -70,5 +69,14 @@ export class RegistrationContactComponent implements OnInit {
   toggleFavorite() {
     this.registrationContact.value.favorite =
       !this.registrationContact.value.favorite;
+  }
+
+  formatPhoneNumber(event: any) {
+    console.log(event);
+
+    const inputValue = event.target.value.replace(/\D/g, ''); // Remove tudo que não for número
+    this.registrationContact.controls['phone'].setValue(inputValue, {
+      emitEvent: false,
+    });
   }
 }

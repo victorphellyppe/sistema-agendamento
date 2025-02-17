@@ -34,7 +34,7 @@
       "
     >
       <td>{{ contact.name }}</td>
-      <td>{{ contact.phone }}</td>
+      <td>{{ contact.phone | brPhone }}</td>
       <td>{{ contact.email }}</td>
       <td>{{ contact.favorite ? "⭐" : "☆" }}</td>
       <td>{{ contact.active ? "Ativo" : "Inativo" }}</td>

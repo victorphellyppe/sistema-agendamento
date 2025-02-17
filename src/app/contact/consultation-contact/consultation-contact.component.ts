@@ -10,7 +10,8 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
-import { ActiveFilterPipe } from '../../active-filter.pipe';
+import { ActiveFilterPipe } from '../../pipes/active-filter.pipe';
+import { BrPhonePipe } from '../../pipes/brPhone.pipe';
 
 @Component({
   selector: 'app-consultation-contact',
@@ -20,6 +21,7 @@ import { ActiveFilterPipe } from '../../active-filter.pipe';
     ActiveFilterPipe,
     FormsModule,
     ReactiveFormsModule,
+    BrPhonePipe,
   ],
   providers: [KeyValuePipe],
 

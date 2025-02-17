@@ -23,8 +23,6 @@ export class LoginComponent {
 
   toggleRegister() {
     this.isRegistering = !this.isRegistering;
-    this.loginFailed = false;
-    this.registrationFailed = false;
   }
 
   onRegister(): void {

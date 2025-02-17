@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { Contact } from './interfaces/contact';
+import { Contact } from '../interfaces/contact';
 
 @Pipe({
   name: 'activeFilter',

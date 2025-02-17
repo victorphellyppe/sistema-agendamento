@@ -1,8 +1,9 @@
+<h3>Sistema de Agendamento Telefônico</h3>
 <div class="background-container">
-  <h3>Sistema de Agendamento Telefonico</h3>
-  <div class="card">
-    <!-- Formulário de Login -->
-    <div *ngIf="!isRegistering">
+  <!-- Container dos Cards -->
+  <div class="cards-container">
+    <!-- Card de Login -->
+    <div class="card" [ngClass]="{ active: !isRegistering }">
       <h2>Login</h2>
       <form (ngSubmit)="onLogin()">
         <input
@@ -23,15 +24,15 @@
 
       <p *ngIf="loginFailed" style="color: red">Credenciais inválidas!</p>
 
-      <p *ngIf="!isRegistering">
+      <p>
         Não tem uma conta?
         <a href="javascript:void(0)" (click)="toggleRegister()">Cadastre-se</a>
       </p>
     </div>
 
-    <!-- Formulário de Registro -->
-    <div *ngIf="isRegistering">
-      <h3>Cadastro</h3>
+    <!-- Card de Registro -->
+    <div class="card" [ngClass]="{ active: isRegistering }">
+      <h2>Cadastro</h2>
       <form (ngSubmit)="onRegister()">
         <input
           [(ngModel)]="newUsername"
